@@ -26,6 +26,11 @@ output "optional_ops_manager_dns" {
   value = "${element(concat(azurerm_dns_a_record.optional_ops_manager_dns.*.name, list("")), 0)}.${element(concat(azurerm_dns_a_record.optional_ops_manager_dns.*.zone_name, list("")), 0)}"
 }
 
+
+output "optional_ops_manager_public_ip" {
+  value = "${azurerm_public_ip.optional_ops_manager_public_ip.ip_address}"
+}
+
 output "mysql_dns" {
   value = "mysql.${azurerm_dns_a_record.mysql.zone_name}"
 }
